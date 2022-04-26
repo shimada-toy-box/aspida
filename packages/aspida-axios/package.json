@@ -26,6 +26,7 @@
     "axios"
   ],
   "dependencies": {
-    "aspida": "^1.7.1"
+    "aspida": "^1.7.1",
+    "qs": "^6.10.3"
   }
 }
