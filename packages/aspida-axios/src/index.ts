@@ -1,5 +1,6 @@
 import { AspidaClient, AspidaParams, HttpMethod, optionToRequest, RequestType } from 'aspida'
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import qs from 'qs'
 
 export default (
   client: AxiosInstance = axios,
@@ -16,6 +17,7 @@ export default (
     const send = (responseType?: 'arraybuffer' | 'blob' | 'json' | 'text') => async () => {
       const request = optionToRequest(params, type)
       const res = await client.request({
+        paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
         ...config,
         url,
         baseURL,
